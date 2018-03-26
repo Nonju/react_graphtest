@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Chartist from 'chartist';
 
 
-class BarGraph extends Component {
+class BarChart extends Component {
   componentWillMount() {
     this.dest = this.props.dest;
     this.data = this.props.data;
@@ -27,10 +27,7 @@ class BarGraph extends Component {
 class PieChart extends Component {
   constructor() {
     super()
-    
-    this.state = {
-      chart: null
-    };
+
     this.modChart = this.modChart.bind(this);
   }
 
@@ -39,19 +36,19 @@ class PieChart extends Component {
     this.data = this.props.data;
   }
 
+  componentDidMount() {
+    this.chart = this.createChart();
+  }
+
   createChart() {
     const id = '#'+this.dest;
     return new Chartist.Pie(id, this.data);
   }
 
   modChart() {
-    this.state.chart.update({
+    this.chart.update({
       series: [5,35,45,3,2]
     });
-  }
-
-  componentDidMount() {
-    this.state.chart = this.createChart();
   }
 
   render() {
@@ -67,7 +64,7 @@ class PieChart extends Component {
 class ChartistTest extends Component {
   componentWillMount() {
     const barData = {
-      dest: 'barGraph',
+      dest: 'barChart',
       data: {
         'labels': ['Jan', 'Feb', 'Mar'],
         'series': [
@@ -92,7 +89,7 @@ class ChartistTest extends Component {
   render() {
     return (
       <div>
-        <BarGraph {...this.barData} />
+        <BarChart {...this.barData} />
         <PieChart {...this.pieData} />
       </div>
     )
