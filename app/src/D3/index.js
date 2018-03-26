@@ -8,8 +8,6 @@ import Piechart from './pie/Piechart';
 
 export default () =>  (
     <div>
-        <hr />
-        <h1>D3 implementation</h1>
 
         <div id='bargraph-container'>
           <Bargraph parentWidth={600} />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ChartistTest from './Chartist';
+import D3 from './D3/';
 
 class Button extends Component {
   constructor() {
@@ -39,13 +40,18 @@ class NavBar extends Component {
       name: 'Chartist',
       component: <ChartistTest />,
     };
+    const d3 = {
+      name: 'D3',
+      component: <D3 />,
+    };
     const other = {
       name: 'Other',
       component: null
     };
     return (
       <div id="exContainer">
-        <Button {...chartist}/> 
+        <Button {...chartist}/>
+        <Button {...d3}/>
         <Button {...other} />
       </div>
     )
