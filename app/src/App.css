@@ -22,6 +22,16 @@
   font-size: large;
 }
 
+#exContainer {
+  min-width: 696px;
+  list-style: none;
+  padding-top: 20px;
+}
+
+#exContainer > * {
+  padding: 5px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
