@@ -12,7 +12,7 @@ export default class Piechart extends Component {
   constructor(props) {
     super(props);
 
-    console.log('D3:', d3);
+    // console.log('D3:', d3);
     // this.pie = d3.layout.pie()
     //             .value(d => d.value);
 
