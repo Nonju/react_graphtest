@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 // import * as d3 from 'd3';
 import data from './data';
 import LabledArc from './Arc';
-
 const d3 = require('d3');
 
 export default class Piechart extends Component {
@@ -14,10 +13,10 @@ export default class Piechart extends Component {
     super(props);
 
     console.log('D3:', d3);
-    this.pie = d3.layout.pie()
-                .value(d => d.value);
+    // this.pie = d3.layout.pie()
+    //             .value(d => d.value);
 
-    this.colors = d3.scale.category10();
+    // this.colors = d3.scale.category10();
   }
 
   arcGenerator(d, i) {
@@ -33,14 +32,15 @@ export default class Piechart extends Component {
   }
 
   render() {
-    let pie = this.pie(this.props.data);
-    let translate = `translate${this.props.x}, ${this.props.y}`;
+    return (<div />);
+    // let pie = this.pie(this.props.data);
+    // let translate = `translate${this.props.x}, ${this.props.y}`;
 
-    return (
-      <g transform={translate}>
-        {pie.map((d, i) => this.arcGenerator(d, i))}
-      </g>
-    );
+    // return (
+    //   <g transform={translate}>
+    //     {pie.map((d, i) => this.arcGenerator(d, i))}
+    //   </g>
+    // );
   }
 
   // render() {
