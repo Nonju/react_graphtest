@@ -21,15 +21,13 @@
 .App-intro {
   font-size: large;
 }
+  
+.chartJsContainer {
+  width:50% ;
+  height: 400px;
+  padding-left: 25%;
+  padding-bottom: 50px;
 
-#exContainer {
-  min-width: 696px;
-  list-style: none;
-  padding-top: 20px;
-}
-
-#exContainer > * {
-  padding: 5px;
 }
 
 @keyframes App-logo-spin {
