@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ChartistTest from './Chartist';
 import D3 from './D3/';
 import ChartJs from './ChartJs';
+import ReactVis from './reactvis/';
 
 class Button extends Component {
   constructor() {
@@ -45,6 +46,10 @@ class NavBar extends Component {
       name: 'D3',
       component: <D3 />,
     };
+    const reactvis = {
+      name: 'React-vis',
+      component: <ReactVis />,
+    };
     const other = {
       name: 'Chart.js',
       component: <ChartJs />
@@ -53,6 +58,7 @@ class NavBar extends Component {
       <div id="exContainer">
         <Button {...chartist}/>
         <Button {...d3}/>
+        <Button {...reactvis}/>
         <Button {...other} />
       </div>
     )
