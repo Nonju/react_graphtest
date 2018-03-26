@@ -3,6 +3,7 @@ import ChartistTest from './Chartist';
 import D3 from './D3/';
 import ChartJs from './ChartJs';
 import ReactVis from './reactvis/';
+import ChartKick from './chartkick';
 
 class Button extends Component {
   constructor() {
@@ -50,16 +51,21 @@ class NavBar extends Component {
       name: 'React-vis',
       component: <ReactVis />,
     };
-    const other = {
+    const chartJs = {
       name: 'Chart.js',
       component: <ChartJs />
+    };
+    const chartKick = {
+      name: 'Chartkick',
+      component: <ChartKick />
     };
     return (
       <div id="exContainer">
         <Button {...chartist}/>
         <Button {...d3}/>
         <Button {...reactvis}/>
-        <Button {...other} />
+        <Button {...chartJs} />
+        <Button {...chartKick} />
       </div>
     )
   }

@@ -26,6 +26,13 @@ const barData = {
         backgroundColor: [...defBackgroundColor],
         borderColor: [...defBorderColor],
         borderWidth: 1
+    },
+    {
+        label: '# of Haters',
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [...defBackgroundColor],
+        borderColor: [...defBorderColor],
+        borderWidth: 1
     }]
   },
   options: {
