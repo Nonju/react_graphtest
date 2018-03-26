@@ -1,5 +1,9 @@
 
 import React, { Component } from 'react';
+import { XYPlot, VerticalBarSeries } from 'react-vis';
+
+import colors from './colors';
+
 
 export default class Bargraph extends Component {
 	constructor(props) {
@@ -8,19 +12,40 @@ export default class Bargraph extends Component {
 		this.data = null;
 	}
 
+	transformData(newData) {
+		if (!newData) {
+			this.data = null;
+			return;
+		}
+
+		this.data = newData.map((d, i) => ({
+			...d,
+			x: i, // API allows this to be a string, code does not...
+			y: d.value,
+			color: colors[i]
+		}));
+		console.log('data afterr:', this.data);
+	}
+
 	componentWillMount() {
-		this.data = this.props.data;
+		this.transformData(this.props.data);
 	}
 
 	componentWillReceiveProps(newProps) {
-		this.data = newProps;
+		this.transformData(newProps && newProps.data);
 	}
 
 	render() {
 		if (!this.data) return <div />;
-		
+
 		return (
-			<h1>Not yet implemented</h1>
+			<XYPlot
+				width={300}
+				height={300} >
+				<VerticalBarSeries
+					colorType='literal'
+					data={this.data} />
+			</XYPlot>
 		);
 	}
 }

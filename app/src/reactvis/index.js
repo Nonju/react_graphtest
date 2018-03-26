@@ -7,7 +7,7 @@ import Piechart from './Piechart';
 
 export default () => (
   <div>
-    <Bargraph />
+    <Bargraph data={data} />
     <Piechart data={data} />
   </div>
 );

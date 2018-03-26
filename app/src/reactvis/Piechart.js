@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react';
-
 import { RadialChart } from 'react-vis';
+
+import colors from './colors';
 
 export default class Piechart extends Component {
 
@@ -9,10 +10,9 @@ export default class Piechart extends Component {
 		super(props);
 
 		this.data = null;
-		this.colors = ['d00', '0d0', '00d', 'd0d', 'dd0'];
 	}
 
-	updateData(newData) {
+	transformData(newData) {
 		if (!newData) {
 			this.data = null;
 			return;
@@ -21,17 +21,17 @@ export default class Piechart extends Component {
 		this.data = newData.map((d, i) => ({
 			...d,
 			angle: d.value,
-			color: this.colors[i],
+			color: colors[i],
 			label: d.title
 		}));
 	}
 
 	componentWillMount() {
-		this.updateData(this.props.data);
+		this.transformData(this.props.data);
 	}
 
 	componentWillReceiveProps(newProps) {
-		this.updateData(newProps && newProps.data);
+		this.transformData(newProps && newProps.data);
 	}
 
 	render() {
